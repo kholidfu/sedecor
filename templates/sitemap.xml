@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for d in data %}
+<url>
+    <loc>http://www.sedecor.com/view/{{ d._id }}</loc>
+    <lastmod>{{ d['added'].strftime("%Y-%m-%d") }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+</url>
+{% endfor %}                                                                
+</urlset>

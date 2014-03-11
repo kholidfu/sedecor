@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Popular Image {% endblock %}
+{% block metadesc %}
+<meta name="description" content="Popular Image - Daily Fresh Home Decor Image For Your Best Inspiration - SEDECOR">
+{% endblock %}
+{% block content %}
+<div id="list1">
+      <ul class="list1">
+	{% for d in data %}	  
+	<li>
+	  <a href="/view/{{ d['_id'] }}" title="{{ d['title']|rmdigit }}"><img src="/collections/{{ d['filename'] }}" width="160" height="160" alt="{{ d['title']|replace('-', ' ')|title|rmdigit }}" title="{{ d['title']|replace('-', ' ')|title|rmdigit }}" border="0" /><p><span>{{ d['title']|replace('-', ' ')|title|rmdigit }}</span></p></a>
+	</li>
+	{% endfor %}
+	<div class="clr"></div>
+    </ul></div>
+    <script type="text/javascript">
+      Box.Arr($('list1'));
+      window.onresize = function() {
+      Box.Arr($('list1'));
+      }
+    </script>
+{% endblock %}

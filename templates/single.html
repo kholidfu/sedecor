@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block title %}{{ data['title']|replace('-', ' ')|title|rmdigit }} #{{ data['_id'] }} {% endblock %}
+{% block metadesc %}
+<meta name="description" content="{{ data['title'] }} #{{ data['_id'] }} "/>
+<meta name="keywords" content="{{ data['title'] }}">
+<meta name="robots" content="noodp,noydir,index,follow" />
+<meta name="revisit-after" content="1 days" />
+
+<meta itemprop="name" content="{{ data['title'] }} - SEDECOR">
+<meta itemprop="description" content="{{ data['title'] }} {{ data['added'] }}">
+<meta itemprop="image" content="http://www.sedecor.com/single/640x400/{{ data['_id'] }}.jpg">
+
+{% endblock %}
+{% block content %}
+    <table border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+	<td valign="top">
+	  <div class="box1" style="width:640px;">
+	    <h1>{{ data['title']|replace('-', ' ')|title|rmdigit }}</h1>
+	    <center>
+	      <div style="background: #272727;">
+		<img src="/single/640x400/{{ data['_id'] }}.jpg" border="0" alt="{{ data['title']|replace('-', ' ')|rmdigit }}" title="{{ data['title']|replace('-', ' ')|rmdigit }}"/>
+	      </div>
+	    </center>
+	  </div>			
+{#
+	  <!-- MarketGidComposite Start -->
+	  <div id="MarketGidScriptRootC4467">
+	    <div id="MarketGidPreloadC4467">
+	      <a id="mg_add4467" href="http://usr.mgid.com/demo/goods/?utm_source=widget&utm_medium=text&utm_campaign=add" target="_blank">Place your ad here</a><br> <a href="http://mgid.com/" target="_blank">Loading...</a> 
+	      </div>
+	      <script> 
+		(function(){
+		var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+		var i=d[ce]('iframe');i[st][ds]=n;d[gi]("MarketGidScriptRootC4467")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><body></body></ht"+"ml>");iw.close();var c=iw[b];}
+		catch(e){var iw=d;var c=d[gi]("MarketGidScriptRootC4467");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=4467;c[ac](dv);
+		var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="http://jsc.dt07.net/e/w/eweb4.com.4467.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+	      </script>
+	    </div>
+	    <!-- MarketGidComposite End -->		
+#}
+	  </td>
+	<td width="20">&nbsp;</td>
+	<td valign="top" width="300">
+	  <div class="b1h">Share &amp; Like</div>
+	  <div class="box1">
+{#
+	    <table border="0" cellpadding="0" cellspacing="0">
+	      <tr>
+		<td>
+		  <div style="width:147px;height:20px;">
+		    <fb:like href="http://pichost.me/1483811/" send="true" layout="button_count" width="150" show_faces="false" font="segoe ui"></fb:like>
+		  </div>
+		</td>
+		<td>
+		  <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://pichost.me/1483811/" data-text="Maria Sharapova">Tweet</a>
+		  <script type="text/javascript">
+		    (function() {
+		    var twitterScriptTag = document.createElement('script');
+		    twitterScriptTag.type = 'text/javascript';
+		    twitterScriptTag.async = true;
+		    twitterScriptTag.src = 'http://platform.twitter.com/widgets.js';
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(twitterScriptTag, s);
+		    })();
+		  </script>
+		</td>
+	      </tr>
+	      <tr>
+		<td height="10" style="font-size:1px;">&nbsp;</td>
+	      </tr>
+	      <tr>
+		<td>
+		  <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fpichost.me%2F1483811%2F&media=http%3A%2F%2Fp1.pichost.me%2F640%2F25%2F1483811.jpg&description=Maria+Sharapova" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+		</td>
+		<td>
+		  <g:plusone size="medium" href="http://pichost.me/1483811/"></g:plusone>
+		  <script type="text/javascript">
+		    (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		    })();
+		  </script>
+		</td>
+	      </tr>
+	    </table>
+#}
+	  </div>
+{#
+	  <div id="fb-root"></div>
+	  <script>
+	    (function() {
+	    var e = document.createElement('script'); e.async = true;
+	    e.src = document.location.protocol +
+	    '//connect.facebook.net/en_US/all.js#xfbml=1';
+	    document.getElementById('fb-root').appendChild(e);
+	    }());
+	  </script>
+	  <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>						
+#}
+	  <div class="b1h">Similar Images</div>
+	  <div class="box1">
+	    <ul class="list2">
+	      {% for rel in reldata['results'] %}
+	      <li>
+		<a href="/view/{{ rel['obj']['_id'] }}" title=""><img src="/similar/{{ rel['obj']['filename'] }}" width="80" height="80" alt="{{ rel['obj']['title']|rmdigit }}" title="{{ rel['obj']['title']|rmdigit }}" border="0" /><p><span>{{ rel['obj']['title']|rmdigit }}</span></p></a>
+	      </li>
+	      {% endfor %}
+	      <div class="clr"></div>
+	  </ul></div>
+
+	  <div class="b1h">Image info &amp; ops</div>
+	  <div class="box1">
+	    <p>
+	      Currently, you are watching "{{ data['title']|title }}",
+	      which has been uploaded on {{ data['added'] }} by admin.
+	      Original image resolution was 
+	      {{ data['dims']|join(' ')|replace(' ', 'x') }} pixels, 
+	      but you can resize it by clicking predefined resolution
+	      in the download section below.
+	      Format and size of this file are {{ data['format'] }}
+	      and {{ data['size'] }}kB consecutively.
+	      This {{ data['title']|title }} has been viewed by 
+	      {{ data['hits'] }} visitors.
+	      Thanks for visiting!
+	    </p>
+	    <a href="#" style="color:#888;float:right;color:#FF0000;" onclick="return Im.re(1483811);">Report</a>
+	    <a class="btn" href="#" onclick="$('embc').style.display = $('embc').style.display == 'block' ? 'none' : 'block'; return false;">Embed</a>
+
+	    <div class="clr"></div>
+	  </div>			
+
+	    <div class="b1h">Download</div>
+	    <div class="box1">
+	    <a class="btn" href="/download/{{ data['dims']|join(' ')|replace(' ', 'x') }}/{{ data['_id'] }}" target="_blank" rel="nofollow">Original</a>
+	    <a class="btn" href="/download/1280x720/{{ data['_id'] }}" target="_blank" rel="nofollow">1280x720</a>
+	    <a class="btn" href="/download/1920x1440/{{ data['_id'] }}" target="_blank" rel="nofollow">1920x1440</a><br><br>
+	    <a class="btn" href="/download/1600x1200/{{ data['_id'] }}" target="_blank" rel="nofollow">1600x1200</a>
+	    <a class="btn" href="/download/1024x600/{{ data['_id'] }}" target="_blank" rel="nofollow">1024x600</a>
+	    </div>
+
+	    <div id="embc" style="display:none;">
+
+	    <div class="b1h">Embed Codes</div>
+	    <div class="box1">
+	      <form>
+		<div class="c">
+		  <div class="fn">Link</div>
+		  <input type="text" class="txt" value="http://www.sedecor.com/view/{{ data['_id' ]}}" id="ef_1" onfocus="setTimeout('$(\'ef_1\').select();', 100);" />
+		</div>
+		<div class="c">
+		  <div class="fn">HTML Link (Original)</div>
+		  <input type="text" class="txt" value="&lt;a href=&quot;http://www.sedecor.com/view/{{ data['_id'] }}&quot;&gt;&lt;img src=&quot;http://www.sedecor.com/download/{{ data['dims']|join(' ')|replace(' ', 'x') }}/{{ data['_id'] }}&quot; alt=&quot;&quot; &gt;&lt;/a&gt;" id="ef_2" onfocus="setTimeout('$(\'ef_2\').select();', 100);" />
+		</div>
+		<div class="c">
+		  <div class="fn">HTML Thumb Link (160x160)</div>
+		  <input type="text" class="txt" value="&lt;a href=&quot;http://www.sedecor.com/view/{{ data['_id'] }}&quot;&gt;&lt;img src=&quot;http://www.sedecor.com/download/{{ data['dims']|join(' ')|replace(' ', 'x') }}/{{ data['_id'] }}&quot; alt=&quot;&quot; width=&quot;160&quot; height=&quot;160&quot; &gt;&lt;/a&gt;" id="ef_3" onfocus="setTimeout('$(\'ef_3\').select();', 100);" />
+		</div>
+		<div class="c">
+		  <div class="fn">BBCode Thumb Link (Original)</div>
+		  <input type="text" class="txt" value="[URL=http://www.sedecor.com/view/{{ data['_id'] }}][IMG]http://www.sedecor.com/download/{{ data['dims']|join(' ')|replace(' ', 'x') }}/{{ data['_id'] }}[/IMG][/URL]" id="ef_4" onfocus="setTimeout('$(\'ef_4\').select();', 100);" />
+		</div>
+		<div class="c">
+		  <div class="fn">BBCode Thumb Link (Original)</div>
+		  <input type="text" class="txt" value="[URL=http://www.sedecor.com/view/{{ data['_id'] }}][IMG]http://www.sedecor.com/download/{{ data['dims']|join(' ')|replace(' ', 'x') }}/{{ data['_id'] }}[/IMG][/URL]" id="ef_5" onfocus="setTimeout('$(\'ef_5\').select();', 100);" />
+		</div>
+	      </form>
+	    </div>
+	  </div>			<div class="b1h">Search images</div>
+	  <div class="box1">
+	    <form action="#" name="sfrm" method="post" class="sfrm">
+	      <input type="text" name="q" autocomplete="off" class="txt" value="" onfocus="if (this.value == '') this.value = '';" onblur="if (this.value == '') this.value='';" />
+	      <input type="submit" class="sbtn" value="" />
+	    </form>
+	</div>		</td>
+	</tr>
+      </table>
+{% endblock %}

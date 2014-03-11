@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Index {% endblock %}
+{% block metadesc %}
+<meta name="description" content="index">
+{% endblock %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>Flask Jump Start</h1>
+    <p class="lead">
+      The quick and right way to develop web apps in seconds!
+    </p>
+    <a class="btn btn-large btn-success" href="#">Sign up today</a>
+  </div>
+  <hr>
+  <div class="marketing row-fluid">
+    <div class="span12">
+      <h4>Top 100 Billboard Song</h4>
+      {% for d in data %}
+      <b>Title: </b>{{ d['title']|replace('-', ' ')|title }}<br>
+      <b>Format: </b>{{ d['format'] }}<br>
+      <b>Added: </b>{{ d['added'] }}<br>
+      <b>Dimension: </b>{{ d['dim']|join('x') }}<br>
+      <b>File Size: </b>{{ d['size'] }}<br>
+      <img src="/collection/400x400/{{ d['filename'] }}">
+      <hr>
+      {% endfor %}
+      {{ data }}
+    </div>
+  </div>
+  <hr>
+<!-- /container -->
+{% endblock %}

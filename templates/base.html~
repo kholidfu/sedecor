@@ -1,0 +1,49 @@
+{% from "util.html" import link_tag, script_tag %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %} | example.com</title>
+    {% block metadesc %}
+    {% endblock %}
+    {{ link_tag('bootstrap') }}
+    {{ link_tag('style') }}
+    {% block css %}
+    {% endblock %}
+    {{ script_tag('jquery-1.10.2') }}
+    {{ script_tag('bootstrap') }}
+    {{ script_tag('bootstrap.min') }}
+    {% block js %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-narrow">
+	<div class="masthead">
+	  <ul class="nav nav-pills pull-right">
+	    <li class="active">
+	      <a href="/">Home</a>
+	    </li>
+	    <li>
+	      <a href="#">About</a>
+	    </li>
+	    <li>
+	      <a href="#">Contact</a>
+	    </li>
+	  </ul>
+	  <h3 class="muted">
+	    Project name
+	  </h3>
+	</div>
+      </div>
+      <hr>
+      <div class="container-narrow">
+	{% block content %}{% endblock %}
+      </div>
+      <div class="footer container-narrow">
+	<p>
+	  © Company 2013
+	</p>
+      </div>
+    </div>
+  </body>
+</html>

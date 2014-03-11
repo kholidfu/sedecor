@@ -1,0 +1,89 @@
+{% from "util.html" import link_tag, script_tag %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% endblock %} | SEDECOR</title>
+    <meta name="google-site-verification" content="FfvOviX6jlMdBBvC0sjjygQGCyfhm-q7oy4R9UGm0FM" />
+    <meta property="og:title" content="SEDECOR" />
+    <meta name="description" content="SEDECOR - Daily Popular Images" />
+    <meta property="og:description" content="SEDECOR - Daily Popular Images" />
+{#    <meta property="fb:admins" content="1541013593" /> #}
+    <meta property="og:site_name" content="SEDECOR.COM" />
+
+    {% block metadesc %}
+    {% endblock %}
+    {{ link_tag('style') }}
+    {% block css %}
+    {% endblock %}
+    {{ script_tag('jquery-1.10.2') }}
+    {{ script_tag('app') }}
+    {% block js %}
+    {% endblock %}
+
+  </head>
+  <body>
+    <div class="logo"><a href="/">SEDECOR</a></div>
+    <div class="menu">
+      <table border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+	  <td>
+	    <ul class="m">
+	      <li class="m"><a href="/" class="m">Home</a></li>
+	      <li class="m"><a href="/new" class="m">New</a></li>
+	      <li class="m"><a href="/top" class="m">Top</a></li>
+	      <li class="m"><a href="#" class="m" onclick="return U.Upl();">Upload</a></li>
+	      <li class="m" id="usrops">
+		<a href="#" class="m" onclick="return App.UOps();">Account</a>
+	      </li>
+	    </ul>
+	  </td>
+	</tr>
+      </table>
+    </div><!-- menu -->
+    {% block content %} {% endblock %}
+    
+    <div class="footer" id="footer">
+      <div class="c">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+	    <td>
+	      <a href="#" rel="nofollow">Terms</a>
+	      /
+	      <a href="#" rel="nofollow">Privacy</a>
+	      /
+	      <a href="#" rel="nofollow">DMCA</a>
+	      /
+	      <a href="#" rel="nofollow">Contact</a>
+	    </td>
+	    <td align="right">Copyright &copy; <a href="/">sedecor.com</a> 2014</td>
+	  </tr>
+	</table>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+      fPos();
+    </script>
+    <div id="ajopr"></div>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=9566016; 
+var sc_invisible=1; 
+var sc_security="8b76f6f3"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="click tracking"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/9566016/0/8b76f6f3/1/"
+alt="click tracking"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+  </body>
+</html>
